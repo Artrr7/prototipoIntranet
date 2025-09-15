@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Agendamentos - Intranet Softhair" />
+    <title>Agendamentos - Intranet Softhair</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="../css/styles.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-building me-2"></i>
+                Intranet Softhair
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-arrow-left me-1"></i>Voltar
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main style="margin-top: 80px;">
+        <div class="container py-5">
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h1 class="section-title">
+                        <i class="fas fa-calendar-check text-primary me-2"></i>
+                        Agendamentos
+                    </h1>
+                    <p class="section-subtitle">Sistema de agendamentos e reuniões</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- Lista de Agendamentos -->
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h5 class="mb-0">
+                                <i class="fas fa-list me-2"></i>Agendamentos Ativos
+                            </h5>
+                        </div>
+                        <div class="card-body p-0">
+                            <div id="agendamentos-list" style="max-height: 400px; overflow-y: auto;">
+                                <!-- Agendamentos serão carregados aqui -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Novo Agendamento -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">
+                                <i class="fas fa-plus me-2"></i>Novo Agendamento
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="agendamento-form">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="agendamento-tema" class="form-label">Tema da Reunião</label>
+                                        <input type="text" class="form-control" id="agendamento-tema" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="agendamento-data" class="form-label">Data</label>
+                                        <input type="date" class="form-control" id="agendamento-data" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="agendamento-horario" class="form-label">Horário</label>
+                                        <input type="time" class="form-control" id="agendamento-horario" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="agendamento-prioridade" class="form-label">Prioridade</label>
+                                        <select class="form-select" id="agendamento-prioridade" required>
+                                            <option value="baixa">Baixa</option>
+                                            <option value="media">Média</option>
+                                            <option value="alta">Alta</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="agendamento-descricao" class="form-label">Descrição</label>
+                                    <textarea class="form-control" id="agendamento-descricao" rows="3"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-calendar-plus me-2"></i>Agendar
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <!-- Estatísticas -->
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h5 class="mb-0">
+                                <i class="fas fa-chart-pie me-2"></i>Estatísticas
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row text-center">
+                                <div class="col-6">
+                                    <h4 class="text-primary mb-1">8</h4>
+                                    <small class="text-muted">Hoje</small>
+                                </div>
+                                <div class="col-6">
+                                    <h4 class="text-success mb-1">15</h4>
+                                    <small class="text-muted">Esta Semana</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Próximos Agendamentos -->
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h5 class="mb-0">
+                                <i class="fas fa-clock me-2"></i>Próximos
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="list-group list-group-flush">
+                                <div class="list-group-item border-0 px-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="agendamento-priority priority-alta me-3"></div>
+                                        <div>
+                                            <h6 class="mb-1">Reunião de Produção</h6>
+                                            <small class="text-muted">Hoje - 09:00</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group-item border-0 px-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="agendamento-priority priority-media me-3"></div>
+                                        <div>
+                                            <h6 class="mb-1">Treinamento de Segurança</h6>
+                                            <small class="text-muted">Amanhã - 14:00</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group-item border-0 px-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="agendamento-priority priority-baixa me-3"></div>
+                                        <div>
+                                            <h6 class="mb-1">Reunião de Equipe</h6>
+                                            <small class="text-muted">Quinta - 15:00</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Informações -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">
+                                <i class="fas fa-info-circle me-2"></i>Informações
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="alert alert-info">
+                                <h6 class="alert-heading">Cancelamentos</h6>
+                                <p class="mb-0 small">
+                                    Para cancelar agendamentos, entre em contato com a equipe de TI.
+                                </p>
+                            </div>
+                            <div class="alert alert-warning">
+                                <h6 class="alert-heading">Prioridades</h6>
+                                <ul class="mb-0 small">
+                                    <li><span class="badge bg-danger me-1"></span>Alta</li>
+                                    <li><span class="badge bg-warning me-1"></span>Média</li>
+                                    <li><span class="badge bg-success me-1"></span>Baixa</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <p class="mb-0">&copy; 2025 Intranet Softhair</p>
+                </div>
+                <div class="col-lg-6 text-lg-end">
+                    <p class="mb-0">Desenvolvido pela equipe de TI</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Dados dos agendamentos
+        let agendamentos = [
+            { tema: "Reunião de Produção", data: "2024-12-20", horario: "09:00", prioridade: "alta", descricao: "Reunião semanal da equipe de produção" },
+            { tema: "Treinamento de Segurança", data: "2024-12-21", horario: "14:00", prioridade: "media", descricao: "Treinamento obrigatório de segurança no trabalho" },
+            { tema: "Apresentação de Resultados", data: "2024-12-22", horario: "10:30", prioridade: "alta", descricao: "Apresentação dos resultados do mês" },
+            { tema: "Reunião de Equipe", data: "2024-12-23", horario: "15:00", prioridade: "baixa", descricao: "Reunião de alinhamento da equipe" }
+        ];
+
+        function renderAgendamentos() {
+            const container = document.getElementById('agendamentos-list');
+            if (!container) return;
+            
+            container.innerHTML = '';
+            
+            agendamentos.forEach(agendamento => {
+                const agendamentoItem = document.createElement('div');
+                agendamentoItem.className = 'agendamento-item';
+                agendamentoItem.innerHTML = `
+                    <div class="agendamento-priority priority-${agendamento.prioridade}"></div>
+                    <div class="agendamento-info">
+                        <h6>${agendamento.tema}</h6>
+                        <p>${agendamento.descricao}</p>
+                    </div>
+                    <div class="agendamento-details">
+                        <div class="agendamento-data">${agendamento.data}</div>
+                        <div class="agendamento-horario">${agendamento.horario}</div>
+                    </div>
+                `;
+                
+                container.appendChild(agendamentoItem);
+            });
+        }
+
+        function initAgendamentos() {
+            const form = document.getElementById('agendamento-form');
+            
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const novoAgendamento = {
+                        tema: document.getElementById('agendamento-tema').value,
+                        data: document.getElementById('agendamento-data').value,
+                        horario: document.getElementById('agendamento-horario').value,
+                        prioridade: document.getElementById('agendamento-prioridade').value,
+                        descricao: document.getElementById('agendamento-descricao').value
+                    };
+                    
+                    agendamentos.push(novoAgendamento);
+                    renderAgendamentos();
+                    form.reset();
+                    
+                    alert('Agendamento criado com sucesso!');
+                });
+            }
+            
+            renderAgendamentos();
+        }
+
+        // Inicializar quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            initAgendamentos();
+        });
+    </script>
+</body>
+</html>
