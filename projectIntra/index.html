@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intranet - Cosmética Industrial</title>
+    
+    <!-- Bootstrap CSS - Framework principal para layout responsivo -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome - Ícones -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- DataTables CSS - Para tabelas interativas -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <!-- FullCalendar CSS - Para calendário interativo -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.8/index.global.min.css" rel="stylesheet">
+    <!-- Google Fonts - Tipografia Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Animations - Animações de scroll -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS - Estilos personalizados -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Banner do Setembro Amarelo - Campanha de prevenção ao suicídio -->
+    <div class="september-banner">
+        <div class="container">
+            <div class="banner-content d-flex align-items-center justify-content-center gap-3">
+                <i class="fas fa-heart banner-icon"></i>
+                <span><strong>Setembro Amarelo 2025</strong> - Mês de prevenção ao suicídio. Cuidar da saúde mental é fundamental para todos nós.</span>
+                <i class="fas fa-ribbon banner-icon"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation - Barra de navegação principal usando Bootstrap Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+        <div class="container">
+            <!-- Logo da empresa -->
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <div class="logo me-2">
+                    <i class="fas fa-industry"></i>
+                </div>
+                <span>Cosmética Industrial</span>
+            </a>
+            
+            <!-- Botão toggle para mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Menu de navegação -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#avisos">Avisos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#aniversariantes">Aniversariantes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#calendario">Calendário</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#institucional">Institucional</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#lancamentos">Lançamentos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ramais">Ramais</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sistemas">Sistemas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#agendamentos">Agendamentos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Seção principal usando Bootstrap Jumbotron -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="hero-content text-center" data-aos="fade-up">
+                <h1 class="hero-title display-4 fw-bold mb-4">Intranet</h1>
+                <p class="hero-subtitle lead">Portal corporativo da Cosmética Industrial</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Avisos Section - Documentos importantes usando Bootstrap Cards -->
+    <section id="avisos" class="section">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Avisos</h2>
+            
+            <div class="row g-4">
+                <!-- Card do Termo de Responsabilidade -->
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-header text-center">
+                            <i class="fas fa-file-contract fs-4 mb-2 d-block"></i>
+                            <h4 class="card-title mb-0">Termo de Responsabilidade</h4>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Recebimento de Encomendas</h5>
+                            <p class="card-text flex-grow-1">
+                                Documento que estabelece as regras e responsabilidades 
+                                para o recebimento de encomendas pessoais nas dependências da empresa.
+                            </p>
+                            <button class="btn btn-primary w-100 mt-auto" onclick="openDocument('termo')">
+                                <i class="fas fa-download me-2"></i>
+                                Baixar Documento
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card do Empréstimo Consignado -->
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-header text-center">
+                            <i class="fas fa-money-check-alt fs-4 mb-2 d-block"></i>
+                            <h4 class="card-title mb-0">Empréstimo Consignado</h4>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Condições e Requisitos</h5>
+                            <p class="card-text flex-grow-1">
+                                Informações sobre empréstimo consignado, condições, 
+                                requisitos e procedimentos para solicitação.
+                            </p>
+                            <button class="btn btn-primary w-100 mt-auto" onclick="openDocument('emprestimo')">
+                                <i class="fas fa-download me-2"></i>
+                                Baixar Documento
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Aniversariantes Section - Lista de aniversariantes usando Bootstrap -->
+    <section id="aniversariantes" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Aniversariantes</h2>
+            
+            <div class="row">
+                <div class="col-12" data-aos="fade-up" data-aos-delay="200">
+                    <!-- Cabeçalho com botões de ordenação -->
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h4 class="text-gradient mb-0">Lista de Aniversariantes</h4>
+                        <div class="btn-group" role="group">
+                            <button class="btn btn-outline-primary btn-sm" onclick="sortBirthdays('date')" title="Ordenar por data">
+                                <i class="fas fa-calendar-day me-1"></i> Data
+                            </button>
+                            <button class="btn btn-outline-primary btn-sm" onclick="sortBirthdays('name')" title="Ordenar por nome">
+                                <i class="fas fa-sort-alpha-down me-1"></i> Nome
+                            </button>
+                            <button class="btn btn-outline-primary btn-sm" onclick="sortBirthdays('department')" title="Ordenar por departamento">
+                                <i class="fas fa-building me-1"></i> Setor
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Container dos aniversariantes -->
+                    <div class="birthday-container" id="birthdayList">
+                        <!-- Carregado via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendário Section - Calendário corporativo usando Bootstrap Grid -->
+    <section id="calendario" class="section">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Calendário</h2>
+            
+            <div class="row g-4">
+                <!-- Calendário principal -->
+                <div class="col-xl-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="calendar-container">
+                        <div id="calendar"></div>
+                    </div>
+                </div>
+                
+                <!-- Informações dos eventos -->
+                <div class="col-xl-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="calendar-info">
+                        <h5 class="mb-4">
+                            <i class="fas fa-calendar-check me-2"></i>
+                            Próximos Eventos
+                        </h5>
+                        
+                        <!-- Próximos eventos serão carregados dinamicamente -->
+                        <div class="text-center text-muted py-4">
+                            <i class="fas fa-calendar-plus fs-4 mb-2 d-block"></i>
+                            <p class="mb-0">Os próximos eventos serão exibidos aqui</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Institucional Section - Horários e regras usando Bootstrap Cards -->
+    <section id="institucional" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Institucional</h2>
+            
+            <div class="row g-4">
+                <!-- Horário de Almoço -->
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-header text-center">
+                            <i class="fas fa-utensils fs-4 mb-2 d-block"></i>
+                            <h4 class="card-title mb-0">Horário de Almoço</h4>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Horários de almoço organizados por grupos para otimizar o fluxo na cantina.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Horário do Café -->
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-header text-center">
+                            <i class="fas fa-coffee fs-4 mb-2 d-block"></i>
+                            <h4 class="card-title mb-0">Café da Manhã</h4>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Horários de café da manhã organizados por grupos para melhor distribuição.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Ginástica Laboral -->
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-header text-center">
+                            <i class="fas fa-dumbbell fs-4 mb-2 d-block"></i>
+                            <h4 class="card-title mb-0">Ginástica Laboral</h4>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Ginástica laboral diária organizada por departamentos para promover bem-estar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Regras de Convivência -->
+            <div class="row mt-5">
+                <div class="col-12" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card shadow-sm">
+                        <div class="card-header text-center">
+                            <i class="fas fa-clipboard-list fs-4 mb-2 d-block"></i>
+                            <h4 class="card-title mb-0">Regras de Convivência</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Respeitar horários de trabalho</li>
+                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Manter ambiente limpo e organizado</li>
+                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Usar EPIs obrigatórios</li>
+                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Comunicar ausências com antecedência</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Participar das reuniões agendadas</li>
+                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Respeitar colegas e superiores</li>
+                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Seguir procedimentos de segurança</li>
+                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Manter sigilo das informações</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lançamentos Section - Produtos novos usando Bootstrap Cards -->
+    <section id="lancamentos" class="section">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Lançamentos</h2>
+            
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-center text-muted py-5">
+                        <i class="fas fa-box-open fs-1 mb-3 d-block"></i>
+                        <h4 class="mb-3">Novos Lançamentos</h4>
+                        <p class="mb-0">Os novos produtos serão exibidos aqui conforme forem lançados</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ramais Section - Lista de contatos usando DataTables -->
+    <section id="ramais" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Ramais</h2>
+            
+            <div class="row">
+                <div class="col-12" data-aos="fade-up" data-aos-delay="200">
+                    <div class="dataTables_wrapper">
+                        <table id="ramaisTable" class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Ramal</th>
+                                    <th>Email</th>
+                                    <th>Departamento</th>
+                                    <th>Cargo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Carregado via JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sistemas Section - Links para sistemas internos -->
+    <section id="sistemas" class="section">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Sistemas</h2>
+            
+            <div class="row g-4">
+                <!-- SICS -->
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <a href="#" class="system-link card h-100 text-decoration-none" onclick="openSystem('sics')">
+                        <div class="card-body d-flex flex-column align-items-center text-center">
+                            <div class="system-icon mb-3">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <h5 class="card-title">SICS</h5>
+                            <p class="card-text">
+                                Sistema Integrado de Controle de Produção. 
+                                Acesso para monitoramento de máquinas, misturas e processos industriais.
+                            </p>
+                            <div class="mt-auto">
+                                <span class="badge bg-primary">Produção</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Relatórios -->
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                    <a href="#" class="system-link card h-100 text-decoration-none" onclick="openSystem('relatorios')">
+                        <div class="card-body d-flex flex-column align-items-center text-center">
+                            <div class="system-icon mb-3">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <h5 class="card-title">Relatórios</h5>
+                            <p class="card-text">
+                                Sistema de relatórios gerenciais. 
+                                Acesso a KPIs, métricas de produção e análises de performance.
+                            </p>
+                            <div class="mt-auto">
+                                <span class="badge bg-success">Gestão</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agendamentos Section - Sistema de reuniões -->
+    <section id="agendamentos" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Agendamentos</h2>
+            <p class="section-subtitle text-center mb-5" data-aos="fade-up" data-aos-delay="100">
+                Gerencie suas reuniões e compromissos
+            </p>
+            
+            <div class="row">
+                <div class="col-12" data-aos="fade-up" data-aos-delay="200">
+                    <!-- Botão para novo agendamento -->
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h4 class="mb-0">Próximas Reuniões</h4>
+                        <button class="btn btn-primary" onclick="openSchedulingModal()">
+                            <i class="fas fa-plus me-2"></i>
+                            Nova Reunião
+                        </button>
+                    </div>
+                    
+                    <!-- Lista de reuniões -->
+                    <div id="meetingsList">
+                        <!-- Carregado via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Modal de Agendamento - Bootstrap Modal -->
+    <div class="modal fade" id="schedulingModal" tabindex="-1" aria-labelledby="schedulingModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="schedulingModalLabel">
+                        <i class="fas fa-calendar-plus me-2"></i>
+                        Novo Agendamento
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="schedulingForm">
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Título da Reunião</label>
+                            <input type="text" class="form-control" id="title" name="title" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="date" class="form-label">Data</label>
+                            <input type="date" class="form-control" id="date" name="date" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="time" class="form-label">Horário</label>
+                            <input type="time" class="form-control" id="time" name="time" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="priority" class="form-label">Prioridade</label>
+                            <select class="form-select" id="priority" name="priority" required>
+                                <option value="low">Baixa</option>
+                                <option value="medium">Média</option>
+                                <option value="high">Alta</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="participants" class="form-label">Participantes (separados por vírgula)</label>
+                            <textarea class="form-control" id="participants" name="participants" rows="3" placeholder="Ex: Ana Silva, Carlos Santos, Maria Oliveira"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" form="schedulingForm" class="btn btn-primary">Agendar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Detalhes do Evento -->
+    <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="eventModalLabel">
+                        <i class="fas fa-calendar-alt me-2"></i>
+                        Detalhes do Evento
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 id="eventTitle"></h6>
+                    <p class="text-muted">
+                        <i class="fas fa-calendar me-1"></i>
+                        <span id="eventDate"></span>
+                    </p>
+                    <p id="eventDescription"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer - Rodapé da página -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="mb-3">
+                        <i class="fas fa-industry me-2"></i>
+                        Cosmética Industrial
+                    </h5>
+                    <p class="mb-0">
+                        Intranet corporativa para comunicação e gestão interna.
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">
+                        &copy; 2025 Cosmética Industrial. Todos os direitos reservados.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts - JavaScript e dependências -->
+    <!-- jQuery - Necessário para DataTables -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Bootstrap JS - Funcionalidades do framework -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTables JS - Tabelas interativas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <!-- FullCalendar JS - Calendário interativo -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.8/index.global.min.js"></script>
+    <!-- AOS JS - Animações de scroll -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Custom Scripts - Scripts personalizados -->
+    <script src="js/main.js"></script>
+    <script src="js/calendar.js"></script>
+    <script src="js/tables.js"></script>
+    <script src="js/birthdays.js"></script>
+</body>
+</html>

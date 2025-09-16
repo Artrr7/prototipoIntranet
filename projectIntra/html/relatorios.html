@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios - Cosmética Industrial</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Animations -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-industry me-2"></i>
+                Cosmética Industrial
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-home me-1"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="lancamentos.html">
+                            <i class="fas fa-rocket me-1"></i> Lançamentos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="relatorios.html">
+                            <i class="fas fa-chart-bar me-1"></i> Relatórios
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content text-center" data-aos="fade-up">
+                <h1 class="hero-title">Relatórios Gerenciais</h1>
+                <p class="hero-subtitle">Dashboards e análises para tomada de decisão estratégica</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filtros de Período -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="mb-4">Filtros de Período</h4>
+                            <div class="row g-3">
+                                <div class="col-md-3">
+                                    <label class="form-label">Data Inicial</label>
+                                    <input type="date" class="form-control" id="startDate" value="2025-01-01">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Data Final</label>
+                                    <input type="date" class="form-control" id="endDate" value="2025-12-31">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Departamento</label>
+                                    <select class="form-select" id="departmentFilter">
+                                        <option value="">Todos</option>
+                                        <option value="producao">Produção</option>
+                                        <option value="vendas">Vendas</option>
+                                        <option value="qualidade">Qualidade</option>
+                                        <option value="administrativo">Administrativo</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">&nbsp;</label>
+                                    <button class="btn btn-primary w-100" onclick="updateReports()">
+                                        <i class="fas fa-sync me-2"></i>Atualizar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KPIs -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Indicadores de Performance</h2>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <i class="fas fa-chart-line fa-2x text-primary mb-3"></i>
+                            <h3 class="text-gradient" id="revenueKPI">R$ 2.5M</h3>
+                            <p class="text-muted">Receita Total</p>
+                            <small class="text-success">
+                                <i class="fas fa-arrow-up me-1"></i> +12.5%
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <i class="fas fa-boxes fa-2x text-success mb-3"></i>
+                            <h3 class="text-gradient" id="productionKPI">15.2K</h3>
+                            <p class="text-muted">Unidades Produzidas</p>
+                            <small class="text-success">
+                                <i class="fas fa-arrow-up me-1"></i> +8.3%
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <i class="fas fa-users fa-2x text-info mb-3"></i>
+                            <h3 class="text-gradient" id="employeesKPI">156</h3>
+                            <p class="text-muted">Funcionários Ativos</p>
+                            <small class="text-success">
+                                <i class="fas fa-arrow-up me-1"></i> +2.1%
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <i class="fas fa-percentage fa-2x text-warning mb-3"></i>
+                            <h3 class="text-gradient" id="efficiencyKPI">94.2%</h3>
+                            <p class="text-muted">Eficiência Operacional</p>
+                            <small class="text-success">
+                                <i class="fas fa-arrow-up me-1"></i> +1.8%
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gráficos -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Gráfico de Vendas -->
+                <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">
+                                <i class="fas fa-chart-line me-2"></i>
+                                Vendas por Mês
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="salesChart" height="100"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gráfico de Produção -->
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">
+                                <i class="fas fa-pie-chart me-2"></i>
+                                Produção por Linha
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="productionChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gráfico de Qualidade -->
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">
+                                <i class="fas fa-check-circle me-2"></i>
+                                Indicadores de Qualidade
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="qualityChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gráfico de Funcionários -->
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">
+                                <i class="fas fa-users me-2"></i>
+                                Funcionários por Departamento
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="employeesChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Relatórios Detalhados -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Relatórios Detalhados</h2>
+            <div class="row g-4">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <i class="fas fa-file-alt"></i>
+                            <h5 class="mb-0">Relatório de Vendas</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-muted">
+                                Análise detalhada das vendas por produto, região e período.
+                            </p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i>Vendas por produto</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Análise regional</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Tendências de mercado</li>
+                            </ul>
+                            <button class="btn btn-primary w-100">
+                                <i class="fas fa-download me-2"></i>Baixar PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <i class="fas fa-cogs"></i>
+                            <h5 class="mb-0">Relatório de Produção</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-muted">
+                                Métricas de produção, eficiência e utilização de recursos.
+                            </p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i>Eficiência das linhas</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Utilização de recursos</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Paradas e manutenções</li>
+                            </ul>
+                            <button class="btn btn-primary w-100">
+                                <i class="fas fa-download me-2"></i>Baixar PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <i class="fas fa-user-check"></i>
+                            <h5 class="mb-0">Relatório de RH</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-muted">
+                                Indicadores de recursos humanos e performance dos funcionários.
+                            </p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i>Absenteísmo</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Performance</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Treinamentos</li>
+                            </ul>
+                            <button class="btn btn-primary w-100">
+                                <i class="fas fa-download me-2"></i>Baixar PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>
+                        <i class="fas fa-industry me-2"></i>
+                        Cosmética Industrial
+                    </h5>
+                    <p>
+                        Intranet corporativa para comunicação e gestão interna.
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">
+                        &copy; 2025 Cosmética Industrial. Todos os direitos reservados.
+                    </p>
+                    <p>
+                        Desenvolvido por TI - Suporte: ramal 1234
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="../js/main.js"></script>
+    <script>
+        // Funcionalidades específicas da página de relatórios
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            
+            initializeCharts();
+        });
+
+        function initializeCharts() {
+            // Gráfico de Vendas
+            const salesCtx = document.getElementById('salesChart').getContext('2d');
+            new Chart(salesCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set'],
+                    datasets: [{
+                        label: 'Vendas (R$ mil)',
+                        data: [120, 135, 150, 140, 160, 175, 180, 190, 200],
+                        borderColor: '#8B5CF6',
+                        backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Gráfico de Produção
+            const productionCtx = document.getElementById('productionChart').getContext('2d');
+            new Chart(productionCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Linha 1', 'Linha 2', 'Linha 3', 'Linha 4'],
+                    datasets: [{
+                        data: [30, 25, 20, 25],
+                        backgroundColor: [
+                            '#8B5CF6',
+                            '#7C3AED',
+                            '#A78BFA',
+                            '#C4B5FD'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+
+            // Gráfico de Qualidade
+            const qualityCtx = document.getElementById('qualityChart').getContext('2d');
+            new Chart(qualityCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Aprovados', 'Reprovados', 'Em Análise'],
+                    datasets: [{
+                        data: [94, 4, 2],
+                        backgroundColor: [
+                            '#10B981',
+                            '#EF4444',
+                            '#F59E0B'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+
+            // Gráfico de Funcionários
+            const employeesCtx = document.getElementById('employeesChart').getContext('2d');
+            new Chart(employeesCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Produção', 'Vendas', 'Qualidade', 'Administrativo', 'TI'],
+                    datasets: [{
+                        data: [45, 25, 15, 20, 8],
+                        backgroundColor: '#8B5CF6'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateReports() {
+            // Simular atualização dos relatórios
+            showNotification('Relatórios atualizados com sucesso!', 'success');
+            
+            // Aqui você pode implementar a lógica real de atualização
+            // dos dados e gráficos baseados nos filtros selecionados
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lançamentos - Cosmética Industrial</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Animations -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-industry me-2"></i>
+                Cosmética Industrial
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-home me-1"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="lancamentos.html">
+                            <i class="fas fa-rocket me-1"></i> Lançamentos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="relatorios.html">
+                            <i class="fas fa-chart-bar me-1"></i> Relatórios
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content text-center" data-aos="fade-up">
+                <h1 class="hero-title">Novos Lançamentos</h1>
+                <p class="hero-subtitle">Conheça nossos produtos mais recentes e inovadores</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filtros -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="mb-4">Filtrar Produtos</h4>
+                            <div class="row g-3">
+                                <div class="col-md-3">
+                                    <select class="form-select" id="categoryFilter">
+                                        <option value="">Todas as Categorias</option>
+                                        <option value="cabelo">Cabelo</option>
+                                        <option value="pele">Pele</option>
+                                        <option value="corpo">Corpo</option>
+                                        <option value="maquiagem">Maquiagem</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select class="form-select" id="statusFilter">
+                                        <option value="">Todos os Status</option>
+                                        <option value="novo">Novo</option>
+                                        <option value="destaque">Destaque</option>
+                                        <option value="popular">Popular</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" id="searchFilter" placeholder="Buscar produto...">
+                                </div>
+                                <div class="col-md-3">
+                                    <button class="btn btn-primary w-100" onclick="filterProducts()">
+                                        <i class="fas fa-search me-2"></i>Filtrar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produtos -->
+    <section class="section">
+        <div class="container">
+            <div class="row g-4" id="productsGrid">
+                <!-- Produto 1 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-card" data-category="cabelo" data-status="novo">
+                        <div class="product-image">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Shampoo Hidratante Premium</h5>
+                            <p class="card-text text-muted">
+                                Nova fórmula com ingredientes naturais para cabelos ressecados. 
+                                Contém óleo de argan e vitamina E para hidratação profunda.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-primary">Novo</span>
+                                <small class="text-muted">Setembro 2025</small>
+                            </div>
+                            <div class="mt-3">
+                                <button class="btn btn-outline-primary btn-sm me-2">
+                                    <i class="fas fa-info-circle me-1"></i> Detalhes
+                                </button>
+                                <button class="btn btn-primary btn-sm">
+                                    <i class="fas fa-download me-1"></i> Ficha Técnica
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 2 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-card" data-category="pele" data-status="destaque">
+                        <div class="product-image">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Creme Facial Anti-idade</h5>
+                            <p class="card-text text-muted">
+                                Tecnologia avançada com ácido hialurônico e vitamina C. 
+                                Reduz linhas de expressão e melhora a textura da pele.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-success">Destaque</span>
+                                <small class="text-muted">Setembro 2025</small>
+                            </div>
+                            <div class="mt-3">
+                                <button class="btn btn-outline-primary btn-sm me-2">
+                                    <i class="fas fa-info-circle me-1"></i> Detalhes
+                                </button>
+                                <button class="btn btn-primary btn-sm">
+                                    <i class="fas fa-download me-1"></i> Ficha Técnica
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 3 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="product-card" data-category="corpo" data-status="popular">
+                        <div class="product-image">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Protetor Solar FPS 60</h5>
+                            <p class="card-text text-muted">
+                                Proteção completa contra UVA e UVB com textura leve. 
+                                Resistente à água e ideal para uso diário.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-warning">Popular</span>
+                                <small class="text-muted">Agosto 2025</small>
+                            </div>
+                            <div class="mt-3">
+                                <button class="btn btn-outline-primary btn-sm me-2">
+                                    <i class="fas fa-info-circle me-1"></i> Detalhes
+                                </button>
+                                <button class="btn btn-primary btn-sm">
+                                    <i class="fas fa-download me-1"></i> Ficha Técnica
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 4 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="product-card" data-category="maquiagem" data-status="novo">
+                        <div class="product-image">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Base Líquida Matte</h5>
+                            <p class="card-text text-muted">
+                                Cobertura média a alta com acabamento mate. 
+                                Longa duração e resistente à transpiração.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-primary">Novo</span>
+                                <small class="text-muted">Setembro 2025</small>
+                            </div>
+                            <div class="mt-3">
+                                <button class="btn btn-outline-primary btn-sm me-2">
+                                    <i class="fas fa-info-circle me-1"></i> Detalhes
+                                </button>
+                                <button class="btn btn-primary btn-sm">
+                                    <i class="fas fa-download me-1"></i> Ficha Técnica
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 5 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="product-card" data-category="cabelo" data-status="destaque">
+                        <div class="product-image">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Máscara Capilar Reparadora</h5>
+                            <p class="card-text text-muted">
+                                Tratamento intensivo para cabelos danificados. 
+                                Contém queratina e óleos nutritivos.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-success">Destaque</span>
+                                <small class="text-muted">Setembro 2025</small>
+                            </div>
+                            <div class="mt-3">
+                                <button class="btn btn-outline-primary btn-sm me-2">
+                                    <i class="fas fa-info-circle me-1"></i> Detalhes
+                                </button>
+                                <button class="btn btn-primary btn-sm">
+                                    <i class="fas fa-download me-1"></i> Ficha Técnica
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 6 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="product-card" data-category="pele" data-status="popular">
+                        <div class="product-image">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Sérum Vitamina C</h5>
+                            <p class="card-text text-muted">
+                                Concentrado de vitamina C pura para clareamento e 
+                                uniformização do tom da pele.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-warning">Popular</span>
+                                <small class="text-muted">Agosto 2025</small>
+                            </div>
+                            <div class="mt-3">
+                                <button class="btn btn-outline-primary btn-sm me-2">
+                                    <i class="fas fa-info-circle me-1"></i> Detalhes
+                                </button>
+                                <button class="btn btn-primary btn-sm">
+                                    <i class="fas fa-download me-1"></i> Ficha Técnica
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estatísticas -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Estatísticas de Lançamentos</h2>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <i class="fas fa-rocket fa-2x text-primary mb-3"></i>
+                            <h3 class="text-gradient">12</h3>
+                            <p class="text-muted">Produtos Lançados em 2025</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <i class="fas fa-star fa-2x text-warning mb-3"></i>
+                            <h3 class="text-gradient">8</h3>
+                            <p class="text-muted">Produtos em Destaque</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <i class="fas fa-chart-line fa-2x text-success mb-3"></i>
+                            <h3 class="text-gradient">95%</h3>
+                            <p class="text-muted">Taxa de Aprovação</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <i class="fas fa-users fa-2x text-info mb-3"></i>
+                            <h3 class="text-gradient">1.2K</h3>
+                            <p class="text-muted">Clientes Satisfeitos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>
+                        <i class="fas fa-industry me-2"></i>
+                        Cosmética Industrial
+                    </h5>
+                    <p>
+                        Intranet corporativa para comunicação e gestão interna.
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">
+                        &copy; 2025 Cosmética Industrial. Todos os direitos reservados.
+                    </p>
+                    <p>
+                        Desenvolvido por TI - Suporte: ramal 1234
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="../js/main.js"></script>
+    <script>
+        // Funcionalidades específicas da página de lançamentos
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+        });
+
+        function filterProducts() {
+            const category = document.getElementById('categoryFilter').value;
+            const status = document.getElementById('statusFilter').value;
+            const search = document.getElementById('searchFilter').value.toLowerCase();
+            
+            const products = document.querySelectorAll('.product-card');
+            
+            products.forEach(product => {
+                const productCategory = product.dataset.category;
+                const productStatus = product.dataset.status;
+                const productTitle = product.querySelector('.card-title').textContent.toLowerCase();
+                
+                let show = true;
+                
+                if (category && productCategory !== category) show = false;
+                if (status && productStatus !== status) show = false;
+                if (search && !productTitle.includes(search)) show = false;
+                
+                product.style.display = show ? 'block' : 'none';
+            });
+        }
+
+        // Filtro em tempo real
+        document.getElementById('searchFilter').addEventListener('input', filterProducts);
+        document.getElementById('categoryFilter').addEventListener('change', filterProducts);
+        document.getElementById('statusFilter').addEventListener('change', filterProducts);
+    </script>
+</body>
+</html>

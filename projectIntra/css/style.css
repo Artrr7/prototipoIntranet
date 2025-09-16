@@ -1,0 +1,1127 @@
+/* ========================================
+   INTRANET COSMÉTICA INDUSTRIAL - CSS
+   ========================================
+   
+   Este arquivo contém estilos personalizados que complementam o Bootstrap 5.
+   O Bootstrap é usado como base para layout, grid, componentes e utilitários.
+   Aqui definimos apenas estilos específicos que não são cobertos pelo Bootstrap.
+   
+   Estrutura:
+   1. Variáveis CSS (Custom Properties)
+   2. Reset e Base
+   3. Componentes personalizados
+   4. Responsividade
+   5. Animações e efeitos
+   
+   ======================================== */
+
+/* ========================================
+   1. VARIÁVEIS CSS (CUSTOM PROPERTIES)
+   ======================================== */
+:root {
+    /* Paleta de Cores - Complementa o Bootstrap */
+    --primary-color: #7C3AED;        /* Roxo principal - usado em gradientes */
+    --primary-dark: #6D28D9;         /* Roxo escuro - para hover states */
+    --primary-light: #8B5CF6;        /* Roxo claro - para elementos sutis */
+    --secondary-color: #1E293B;      /* Cinza escuro - para textos secundários */
+    --accent-color: #F1F5F9;         /* Cinza muito claro - para fundos */
+    --text-primary: #0F172A;         /* Preto suave - para textos principais */
+    --text-secondary: #64748B;       /* Cinza médio - para textos secundários */
+    --text-light: #94A3B8;           /* Cinza claro - para textos terciários */
+    --bg-primary: #FFFFFF;           /* Branco - fundo principal */
+    --bg-secondary: #F8FAFC;         /* Cinza muito claro - fundo secundário */
+    --bg-dark: #0F172A;              /* Preto suave - para footer */
+    --bg-card: #FFFFFF;              /* Branco - para cards */
+    
+    /* Cores do Setembro Amarelo - Campanha especial */
+    --yellow-primary: #F59E0B;       /* Amarelo principal */
+    --yellow-dark: #D97706;          /* Amarelo escuro */
+    --yellow-light: #FEF3C7;         /* Amarelo claro */
+    
+    /* Gradientes - Para elementos especiais */
+    --gradient-primary: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
+    --gradient-yellow: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+    --gradient-dark: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+    
+    /* Sombras - Complementa o sistema de sombras do Bootstrap */
+    --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    
+    /* Bordas - Complementa o sistema de border-radius do Bootstrap */
+    --border-radius: 4px;
+    --border-radius-md: 6px;
+    --border-radius-lg: 8px;
+    --border-radius-xl: 12px;
+    
+    /* Espaçamentos - Complementa o sistema de spacing do Bootstrap */
+    --spacing-xs: 0.375rem;  /* 6px */
+    --spacing-sm: 0.75rem;   /* 12px */
+    --spacing-md: 1rem;      /* 16px */
+    --spacing-lg: 1.5rem;    /* 24px */
+    --spacing-xl: 2rem;      /* 32px */
+    --spacing-2xl: 2.5rem;   /* 40px */
+    --spacing-3xl: 3.5rem;   /* 56px */
+    
+    /* Tipografia - Complementa o sistema de tipografia do Bootstrap */
+    --font-size-xs: 0.6875rem;   /* 11px */
+    --font-size-sm: 0.8125rem;   /* 13px */
+    --font-size-base: 0.9375rem; /* 15px */
+    --font-size-lg: 1rem;        /* 16px */
+    --font-size-xl: 1.125rem;    /* 18px */
+    --font-size-2xl: 1.25rem;    /* 20px */
+    --font-size-3xl: 1.5rem;     /* 24px */
+    --font-size-4xl: 1.875rem;   /* 30px */
+    
+    /* Container - Largura máxima personalizada */
+    --container-max-width: 1200px;
+    --container-padding: var(--spacing-md);
+}
+
+/* ========================================
+   2. RESET E BASE
+   ======================================== */
+
+/* Reset básico - Complementa o reset do Bootstrap */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Configurações base do body - Usa fonte Inter do Google Fonts */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.5;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    scroll-behavior: smooth;
+    font-size: var(--font-size-base);
+    font-weight: 400;
+}
+
+/* ========================================
+   3. COMPONENTES PERSONALIZADOS
+   ======================================== */
+
+/* Banner do Setembro Amarelo - Componente especial */
+.september-banner {
+    background: var(--gradient-yellow);
+    color: var(--text-primary);
+    padding: var(--spacing-sm) 0;
+    text-align: center;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito de fundo sutil no banner */
+.september-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="rgba(0,0,0,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+    opacity: 0.2;
+}
+
+/* Conteúdo do banner com z-index para ficar acima do fundo */
+.september-banner .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Ícones do banner */
+.september-banner .banner-icon {
+    font-size: var(--font-size-base);
+}
+
+/* Navegação - Complementa o Bootstrap Navbar */
+.navbar {
+    background: var(--bg-primary) !important;
+    box-shadow: var(--shadow-xs);
+    padding: var(--spacing-md) 0;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid var(--accent-color);
+}
+
+/* Efeito de scroll na navbar */
+.navbar.scrolled {
+    box-shadow: var(--shadow-sm);
+    padding: var(--spacing-sm) 0;
+}
+
+/* Logo da empresa */
+.navbar-brand {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--primary-color) !important;
+    text-decoration: none;
+}
+
+/* Ícone do logo */
+.navbar-brand .logo {
+    width: 28px;
+    height: 28px;
+    background: var(--gradient-primary);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: var(--font-size-sm);
+}
+
+/* Links de navegação */
+.nav-link {
+    color: var(--text-secondary) !important;
+    font-weight: 400;
+    padding: var(--spacing-xs) var(--spacing-sm) !important;
+    margin: 0 var(--spacing-xs);
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+    font-size: var(--font-size-sm);
+}
+
+.nav-link:hover {
+    color: var(--primary-color) !important;
+    background: rgba(124, 58, 237, 0.08);
+}
+
+.nav-link.active {
+    background: var(--gradient-primary);
+    color: white !important;
+}
+
+/* Hero Section - Seção principal */
+.hero-section {
+    background: var(--gradient-primary);
+    color: white;
+    padding: var(--spacing-3xl) 0 var(--spacing-2xl);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito de fundo no hero */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
+}
+
+/* Conteúdo do hero */
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Títulos das seções */
+.section-title {
+    font-size: var(--font-size-3xl);
+    font-weight: 500;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+    letter-spacing: -0.025em;
+}
+
+/* Subtítulos das seções */
+.section-subtitle {
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-3xl);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+}
+
+/* Seções com espaçamento */
+.section {
+    padding: var(--spacing-3xl) 0;
+}
+
+/* Cards personalizados - Complementa o Bootstrap Cards */
+.card {
+    background: var(--bg-card);
+    border: 1px solid rgba(124, 58, 237, 0.1);
+    border-radius: var(--border-radius-xl);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+/* Hover effect nos cards */
+.card:hover {
+    box-shadow: 0 4px 16px rgba(124, 58, 237, 0.12);
+    transform: translateY(-2px);
+    border-color: rgba(124, 58, 237, 0.2);
+}
+
+/* Header dos cards */
+.card-header {
+    background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
+    color: white;
+    border: none;
+    padding: var(--spacing-sm);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito shimmer no header dos cards */
+.card-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.card:hover .card-header::before {
+    transform: translateX(100%);
+}
+
+/* Ícones no header dos cards */
+.card-header i {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-xs);
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+/* Títulos no header dos cards */
+.card-header h4,
+.card-header h5 {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+}
+
+/* Body dos cards */
+.card-body {
+    padding: var(--spacing-md);
+}
+
+/* Títulos dos cards */
+.card-title {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+}
+
+/* Texto dos cards */
+.card-text {
+    font-size: var(--font-size-xs);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.5;
+}
+
+/* Botões personalizados - Complementa o Bootstrap Buttons */
+.btn {
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    transition: all 0.3s ease;
+    border: none;
+    font-size: var(--font-size-xs);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+}
+
+/* Botão primário */
+.btn-primary {
+    background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
+    color: white;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #6D28D9 0%, #5B21B6 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+    color: white;
+}
+
+/* Botão outline primário */
+.btn-outline-primary {
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    background: transparent;
+}
+
+.btn-outline-primary:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Tamanhos de botões */
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.625rem; /* 10px */
+}
+
+.btn-lg {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-sm);
+}
+
+/* ========================================
+   4. COMPONENTES ESPECÍFICOS
+   ======================================== */
+
+/* Aniversariantes */
+.birthday-container {
+    background: var(--bg-card);
+    border: 1px solid rgba(124, 58, 237, 0.1);
+    border-radius: var(--border-radius-xl);
+    padding: var(--spacing-md);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    max-height: 300px;
+    overflow-y: auto;
+    backdrop-filter: blur(10px);
+}
+
+.birthday-item {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-xs);
+    margin-bottom: var(--spacing-xs);
+    background: rgba(124, 58, 237, 0.05);
+    border-radius: var(--border-radius-md);
+    border-left: 3px solid var(--primary-color);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.birthday-item:hover {
+    transform: translateX(2px);
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.15);
+    background: rgba(124, 58, 237, 0.08);
+}
+
+.birthday-item.today {
+    background: rgba(124, 58, 237, 0.12);
+    border-left-color: var(--primary-color);
+    animation: pulse 2s infinite;
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.2);
+}
+
+.birthday-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: var(--spacing-sm);
+    color: white;
+    font-size: var(--font-size-xs);
+    background: var(--gradient-primary);
+}
+
+/* Avatares por departamento */
+.avatar-producao { background: var(--gradient-primary); }
+.avatar-escritorio { background: var(--gradient-dark); }
+.avatar-ti { background: linear-gradient(135deg, #10B981 0%, #059669 100%); }
+.avatar-qualidade { background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); }
+.avatar-vendas { background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%); }
+
+/* Calendário - Design melhorado */
+.calendar-container {
+    background: var(--bg-card);
+    border: 1px solid rgba(124, 58, 237, 0.08);
+    border-radius: var(--border-radius-xl);
+    padding: var(--spacing-lg);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(15px);
+    transition: all 0.3s ease;
+}
+
+.calendar-container:hover {
+    box-shadow: 0 8px 30px rgba(124, 58, 237, 0.12);
+    transform: translateY(-2px);
+}
+
+.calendar-info {
+    background: var(--bg-card);
+    border: 1px solid rgba(124, 58, 237, 0.08);
+    border-radius: var(--border-radius-xl);
+    padding: var(--spacing-lg);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    height: fit-content;
+    backdrop-filter: blur(15px);
+    transition: all 0.3s ease;
+}
+
+.calendar-info:hover {
+    box-shadow: 0 8px 30px rgba(124, 58, 237, 0.12);
+    transform: translateY(-2px);
+}
+
+.calendar-info h5 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+}
+
+/* Eventos do calendário - Design melhorado */
+.event-item {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    background: rgba(124, 58, 237, 0.03);
+    border-radius: var(--border-radius-lg);
+    border-left: 4px solid var(--primary-color);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.event-item:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 16px rgba(124, 58, 237, 0.15);
+    background: rgba(124, 58, 237, 0.06);
+    border-left-color: var(--primary-light);
+}
+
+/* Tipos de eventos - Cores melhoradas */
+.event-item.holiday {
+    border-left-color: #DC2626;
+    background: rgba(220, 38, 38, 0.03);
+}
+
+.event-item.holiday:hover {
+    background: rgba(220, 38, 38, 0.06);
+    border-left-color: #EF4444;
+}
+
+.event-item.meeting {
+    border-left-color: #7C3AED;
+    background: rgba(124, 58, 237, 0.03);
+}
+
+.event-item.meeting:hover {
+    background: rgba(124, 58, 237, 0.06);
+    border-left-color: #8B5CF6;
+}
+
+.event-item.training {
+    border-left-color: #F59E0B;
+    background: rgba(245, 158, 11, 0.03);
+}
+
+.event-item.training:hover {
+    background: rgba(245, 158, 11, 0.06);
+    border-left-color: #FBBF24;
+}
+
+.event-date {
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-right: var(--spacing-xs);
+    min-width: 30px;
+    font-size: 0.625rem; /* 10px */
+}
+
+.event-title {
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+    font-size: var(--font-size-xs);
+}
+
+.event-description {
+    font-size: 0.625rem; /* 10px */
+    color: var(--text-secondary);
+}
+
+
+/* FullCalendar personalizado - Design melhorado */
+.fc-toolbar-title {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: var(--font-size-lg);
+    letter-spacing: -0.025em;
+}
+
+.fc-button-primary {
+    background: var(--gradient-primary);
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(124, 58, 237, 0.2);
+}
+
+.fc-button-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(124, 58, 237, 0.3);
+}
+
+.fc-button-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(124, 58, 237, 0.25);
+}
+
+.fc-event {
+    border-radius: var(--border-radius-md);
+    border: none;
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    padding: 2px 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Estilos para diferentes tipos de eventos no calendário - Design melhorado */
+.fc-event.holiday {
+    background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%) !important;
+    color: white !important;
+    font-weight: 600;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
+    border: none;
+}
+
+.fc-event.meeting {
+    background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%) !important;
+    color: white !important;
+    font-weight: 600;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.3);
+    border: none;
+}
+
+.fc-event.training {
+    background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%) !important;
+    color: white !important;
+    font-weight: 600;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+    border: none;
+}
+
+.fc-event.celebration {
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%) !important;
+    color: white !important;
+    font-weight: 600;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+    border: none;
+}
+
+
+/* Hover effects para eventos - Melhorado */
+.fc-event:hover {
+    transform: scale(1.08) translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+    z-index: 10;
+    position: relative;
+}
+
+
+/* Tabelas - Complementa o Bootstrap Tables */
+.dataTables_wrapper {
+    background: var(--bg-card);
+    border: 1px solid rgba(124, 58, 237, 0.1);
+    border-radius: var(--border-radius-xl);
+    padding: var(--spacing-md);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    backdrop-filter: blur(10px);
+}
+
+table.dataTable thead th {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    font-weight: 500;
+    padding: var(--spacing-xs);
+    font-size: var(--font-size-xs);
+}
+
+table.dataTable tbody tr:hover {
+    background: rgba(124, 58, 237, 0.05);
+}
+
+table.dataTable tbody td {
+    padding: var(--spacing-xs);
+    font-size: var(--font-size-xs);
+}
+
+/* Agendamentos */
+.meeting-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(124, 58, 237, 0.1);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xs);
+    margin-bottom: var(--spacing-xs);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+    border-left: 3px solid var(--primary-color);
+    backdrop-filter: blur(10px);
+}
+
+.meeting-card:hover {
+    transform: translateX(2px);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.15);
+    border-left-color: var(--primary-light);
+}
+
+/* Prioridades de reunião */
+.meeting-card.high-priority {
+    border-left-color: #EF4444;
+}
+
+.meeting-card.medium-priority {
+    border-left-color: #F59E0B;
+}
+
+.meeting-card.low-priority {
+    border-left-color: #10B981;
+}
+
+.status-indicator {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: var(--spacing-xs);
+}
+
+.status-high { background: #EF4444; }
+.status-medium { background: #F59E0B; }
+.status-low { background: #10B981; }
+
+/* Produtos */
+.product-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(124, 58, 237, 0.1);
+    border-radius: var(--border-radius-xl);
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.product-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(124, 58, 237, 0.12);
+    border-color: rgba(124, 58, 237, 0.2);
+}
+
+.product-image {
+    height: 80px;
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: var(--font-size-lg);
+}
+
+/* Sistemas */
+.system-link {
+    display: block;
+    background: var(--bg-card);
+    border: 1px solid rgba(124, 58, 237, 0.1);
+    border-radius: var(--border-radius-xl);
+    padding: var(--spacing-md);
+    text-decoration: none;
+    color: var(--text-primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+    margin-bottom: var(--spacing-sm);
+    backdrop-filter: blur(10px);
+}
+
+.system-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(124, 58, 237, 0.12);
+    border-color: rgba(124, 58, 237, 0.2);
+    color: var(--text-primary);
+}
+
+.system-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--border-radius);
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Footer */
+footer {
+    background: var(--bg-dark);
+    color: white;
+    padding: var(--spacing-lg) 0 var(--spacing-md);
+}
+
+footer h5 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+}
+
+footer p {
+    color: var(--text-light);
+    font-size: var(--font-size-xs);
+}
+
+/* Modais - Complementa o Bootstrap Modals */
+.modal-content {
+    border-radius: var(--border-radius-xl);
+    border: none;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(20px);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
+    color: white;
+    border-radius: var(--border-radius-xl) var(--border-radius-xl) 0 0;
+    padding: var(--spacing-sm);
+}
+
+.modal-header .btn-close {
+    filter: invert(1);
+}
+
+.modal-body {
+    padding: var(--spacing-md);
+}
+
+.modal-footer {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-top: 1px solid var(--accent-color);
+}
+
+/* Formulários - Complementa o Bootstrap Forms */
+.form-control {
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-xs);
+    transition: all 0.3s ease;
+    font-size: var(--font-size-xs);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(124, 58, 237, 0.25);
+}
+
+.form-label {
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+    font-size: var(--font-size-xs);
+}
+
+.form-select {
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-xs);
+    font-size: var(--font-size-xs);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+/* Badges - Complementa o Bootstrap Badges */
+.badge {
+    font-size: 0.625rem; /* 10px */
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--border-radius-md);
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Alertas - Complementa o Bootstrap Alerts */
+.alert {
+    border-radius: var(--border-radius-md);
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-xs);
+    backdrop-filter: blur(10px);
+}
+
+.alert-success {
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+    border-left: 2px solid #10B981;
+}
+
+.alert-warning {
+    background: rgba(245, 158, 11, 0.1);
+    color: #D97706;
+    border-left: 2px solid #F59E0B;
+}
+
+.alert-danger {
+    background: rgba(239, 68, 68, 0.1);
+    color: #DC2626;
+    border-left: 2px solid #EF4444;
+}
+
+.alert-info {
+    background: rgba(124, 58, 237, 0.1);
+    color: var(--primary-color);
+    border-left: 2px solid var(--primary-color);
+}
+
+/* ========================================
+   5. ANIMAÇÕES E EFEITOS
+   ======================================== */
+
+/* Animação de pulso para aniversariantes do dia */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+/* Animação de fade in up */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* ========================================
+   6. UTILITÁRIOS
+   ======================================== */
+
+/* Texto com gradiente */
+.text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Backgrounds com gradiente */
+.bg-gradient-primary {
+    background: var(--gradient-primary);
+}
+
+.bg-gradient-yellow {
+    background: var(--gradient-yellow);
+}
+
+.bg-light {
+    background: var(--bg-secondary);
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
+
+/* ========================================
+   7. RESPONSIVIDADE
+   ======================================== */
+
+/* Breakpoint 1200px - Desktop grande */
+@media (max-width: 1200px) {
+    .col-xl-8,
+    .col-xl-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/* Breakpoint 992px - Tablet */
+@media (max-width: 992px) {
+    .col-lg-4,
+    .col-lg-6,
+    .col-lg-8 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    .calendar-info {
+        margin-top: var(--spacing-md);
+    }
+}
+
+/* Breakpoint 768px - Mobile grande */
+@media (max-width: 768px) {
+    :root {
+        --spacing-3xl: 4rem;
+        --spacing-2xl: 3rem;
+    }
+    
+    .hero-title { font-size: var(--font-size-3xl); }
+    .section-title { font-size: var(--font-size-2xl); }
+    .section { padding: var(--spacing-2xl) 0; }
+    .card-body { padding: var(--spacing-md); }
+    .hero-section { padding: var(--spacing-2xl) 0 var(--spacing-xl); }
+    
+    .col-md-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    .september-banner .banner-content {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+        text-align: center;
+    }
+    
+    .navbar-brand {
+        font-size: var(--font-size-base);
+    }
+    
+    .nav-link {
+        padding: var(--spacing-xs) !important;
+        font-size: var(--font-size-xs);
+    }
+    
+    .btn-group {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn-group .btn {
+        margin-bottom: var(--spacing-xs);
+    }
+}
+
+/* Breakpoint 576px - Mobile pequeno */
+@media (max-width: 576px) {
+    .hero-title { font-size: var(--font-size-2xl); }
+    .section-title { font-size: var(--font-size-xl); }
+    .section { padding: var(--spacing-xl) 0; }
+    .card-body { padding: var(--spacing-sm); }
+    .hero-section { padding: var(--spacing-xl) 0 var(--spacing-lg); }
+    
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .september-banner {
+        padding: var(--spacing-xs) 0;
+    }
+    
+    .september-banner .banner-content {
+        font-size: var(--font-size-xs);
+    }
+    
+    .navbar {
+        padding: var(--spacing-sm) 0;
+    }
+    
+    .hero-subtitle {
+        font-size: var(--font-size-sm);
+    }
+    
+    .card-header h4,
+    .card-header h5 {
+        font-size: var(--font-size-sm);
+    }
+    
+    .card-title {
+        font-size: var(--font-size-sm);
+    }
+    
+    .birthday-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .birthday-avatar {
+        margin-right: 0;
+        margin-bottom: var(--spacing-xs);
+    }
+    
+    .meeting-card {
+        padding: var(--spacing-sm);
+    }
+    
+    .system-link {
+        padding: var(--spacing-md);
+    }
+    
+    .system-icon {
+        width: 32px;
+        height: 32px;
+        font-size: var(--font-size-sm);
+    }
+    
+    .event-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .event-date {
+        margin-right: 0;
+        margin-bottom: var(--spacing-xs);
+        min-width: auto;
+    }
+    
+    .calendar-info {
+        margin-top: var(--spacing-md);
+    }
+}
+
+/* ========================================
+   FIM DO ARQUIVO CSS
+   ======================================== */
