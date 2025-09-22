@@ -1,27 +1,14 @@
-const form = document.getElementById('eventForm');
-const input = document.getElementById('eventInput');
-const date = document.getElementById('eventDate');
-const list = document.getElementById('eventList');
-
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
-
-  if (input.value.trim() === "") return;
-
-  const li = document.createElement('li');
-  li.textContent = `${date.value} - ${input.value}`;
-
-  const removeBtn = document.createElement('button');
-  removeBtn.textContent = "Excluir";
-  removeBtn.classList.add("remove");
-
-  removeBtn.addEventListener('click', () => {
-    li.remove();
+document.addEventListener('DOMContentLoaded', function () {
+  const calendarEl = document.getElementById('calendar');
+  const listView = new FullCalendar.Calendar(calendarEl, {
+    initialView: 'listWeek',
+    locale: 'pt-br',
+    headerToolbar: {
+      left: 'prev,next today',
+      center: 'title',
+      right: ''
+    },
+    events: []
   });
-
-  li.appendChild(removeBtn);
-  list.appendChild(li);
-
-  input.value = "";
-  date.value = "";
+  listView.render();
 });
